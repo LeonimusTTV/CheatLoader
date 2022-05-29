@@ -57,7 +57,7 @@ namespace Cheat_Loader_By_LeonimusT
             using (WebClient wc = new WebClient())
             {
                 //read json
-                string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/cheat_info.json"); // i lost the server but i still work :)
+                string json = wc.DownloadString("https://disapproved-method.000webhostapp.com/cheat_info.json"); // i lost the server but i still work :)
                 //deserialize json
                 stuff = JsonConvert.DeserializeObject(json);
                 foreach(var item in stuff)
