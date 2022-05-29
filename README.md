@@ -31,7 +31,8 @@
 
 #### Latest versions
 
-- [1.0.0](https://github.com/LeonimusTTV/Youtube-Presence/releases/tag/V1.0.0)
+- [1.0.0](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.0)
+- [1.0.1](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.1)
 
 
 
