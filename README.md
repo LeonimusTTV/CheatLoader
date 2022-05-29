@@ -8,10 +8,10 @@
 ## Table of content
 
 - [Supported game](https://github.com/LeonimusTTV/CheatLoader#Supported-game)
-- [Download](https://github.com/LeonimusTTV/Youtube-Presence#Download)
-- [How to use it](https://github.com/LeonimusTTV/Youtube-Presence#How-to-use-it)
-- [Building the exe file](https://github.com/LeonimusTTV/Youtube-Presence#Building-the-exe-file)
-- [License](https://github.com/LeonimusTTV/Youtube-Presence#License)
+- [Download](https://github.com/LeonimusTTV/CheatLoader#Download)
+- [How to use it](https://github.com/LeonimusTTV/CheatLoader#How-to-use-it)
+- [Building the exe file](https://github.com/LeonimusTTV/CheatLoader#Building-the-exe-file)
+- [License](https://github.com/LeonimusTTV/CheatLoader#License)
 
 ---
 
