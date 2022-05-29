@@ -1,0 +1,5 @@
+C:\Users\leodu\source\repos\Skin Changer By LeonimusT\Skin Changer By LeonimusT\obj\Debug\Skin Changer By LeonimusT.csprojAssemblyReference.cache
+C:\Users\leodu\source\repos\Skin Changer By LeonimusT\Skin Changer By LeonimusT\obj\Debug\Skin_Changer_By_LeonimusT.Form1.resources
+C:\Users\leodu\source\repos\Skin Changer By LeonimusT\Skin Changer By LeonimusT\obj\Debug\Skin_Changer_By_LeonimusT.Properties.Resources.resources
+C:\Users\leodu\source\repos\Skin Changer By LeonimusT\Skin Changer By LeonimusT\obj\Debug\Skin Changer By LeonimusT.csproj.GenerateResource.cache
+C:\Users\leodu\source\repos\Skin Changer By LeonimusT\Skin Changer By LeonimusT\obj\Debug\Skin Changer By LeonimusT.csproj.CoreCompileInputs.cache
