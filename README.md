@@ -43,7 +43,7 @@
 
 2. Launch the game you want to cheat on
 
-3. Launch the version that is indicated in the table [Supported Game](https://github.com/LeonimusTTV/CheatLoader#Supported-game) 
+3. Launch the version that is indicated in the [Supported Game](https://github.com/LeonimusTTV/CheatLoader#Supported-game) 
 
 4. Select the cheat for the game you want and download it
 
