@@ -62,3 +62,9 @@ Then compile the project as **Release - x64 or x86**
 ## License
 
 MIT
+
+---
+
+## Contact
+
+LEØNIMUST#0002
