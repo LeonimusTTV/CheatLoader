@@ -51,13 +51,50 @@ namespace Cheat_Loader_By_LeonimusT
             infoPanel.Visible = false;
             injectText.Visible = false;
 
-            
-            
+            //check app info
+            using (WebClient wc = new WebClient())
+            {
+                //read json
+                string json = wc.DownloadString("https://disapproved-method.000webhostapp.com/app_version.json");
+                //deserialize json
+                stuff = JsonConvert.DeserializeObject(json);
+
+                var item = stuff;
+                string currentPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+
+                //check if app_local_version.txt exist
+                if (File.Exists(@currentPath + "\\" + item.localVersionName))
+                {
+                    localVersion = File.ReadAllText(@currentPath + "\\" + item.localVersionName);
+                }
+                else
+                {
+                    //download it if not
+                    wc.DownloadFile((string)item.downloadLink, (string)item.localVersionName);
+
+                    localVersion = File.ReadAllText(@currentPath + "\\" + item.localVersionName);
+                }
+
+                if (item.onlineVersion != localVersion)
+                {
+                    if ((bool)item.important_update)
+                    {
+                        MessageBox.Show("A new version of the app has been released! You must install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                        //close app, other method for close app didn't work idk why
+                        System.Environment.Exit(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("A new version of the app has been released! You don't have to install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                    }
+                }
+            }
+
             //load json
             using (WebClient wc = new WebClient())
             {
                 //read json
-                string json = wc.DownloadString("https://disapproved-method.000webhostapp.com/cheat_info.json"); // i lost the server but i still work :)
+                string json = wc.DownloadString("https://disapproved-method.000webhostapp.com/cheat_info.json");
                 //deserialize json
                 stuff = JsonConvert.DeserializeObject(json);
                 foreach(var item in stuff)
