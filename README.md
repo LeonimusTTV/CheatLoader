@@ -22,6 +22,7 @@
 | ---- | ---- | ---- | ---- |
 | CSGO |  1.0.0 or + | :heavy_check_mark: Everything working | x86 |
 | Gmod | 1.0.0 or + | :heavy_check_mark: Everything working | x64 |
+| LoL | 1.0.3 or + | :heavy_check_mark: Everything working | x86 |
 | More game soon | ... | ... | ... |
 
 ---
