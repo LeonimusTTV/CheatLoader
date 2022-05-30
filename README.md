@@ -49,6 +49,8 @@
 
 5. Now inject it and have fun :) 
 
+PS: for LoL you must start a game to be able to inject (
+
 #### If you get an error, make sure to follow the steps that could fix the error before posting an issue
 
 ---
