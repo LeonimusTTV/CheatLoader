@@ -56,8 +56,7 @@
 
 ## Building the exe file
 
-The client was created in Visual Studio 2019, to edit and compile your own version, get the project located in **Cheat Loader**.
-Then compile the project as **Release - x64 or x86**
+To edit and compile your own version, download the repo, then compile the project as **Release - x64 or x86**
 
 ---
 
