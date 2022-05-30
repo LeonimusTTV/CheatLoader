@@ -334,6 +334,23 @@ namespace Cheat_Loader_By_LeonimusT
                                 injectText.Refresh();
                                 System.Threading.Thread.Sleep(5000);
                             }
+                        }else if(gameName == "League of Legends")
+                        {
+                            if (IntPtr.Size == 8)
+                            {
+                                injectText.Text = "Launch the x86 cheat loader !";
+                                injectText.ForeColor = System.Drawing.Color.Red;
+                                injectText.Refresh();
+                                System.Threading.Thread.Sleep(5000);
+                            }
+                            else if (IntPtr.Size == 4)
+                            {
+                                System.Diagnostics.Process.Start("lolinjector.exe");
+                                injectText.Text = "Injected !";
+                                injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                                injectText.Refresh();
+                                System.Threading.Thread.Sleep(5000);
+                            }
                         }
 
                     }
