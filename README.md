@@ -12,6 +12,7 @@
 - [How to use it](https://github.com/LeonimusTTV/CheatLoader#How-to-use-it)
 - [Building the exe file](https://github.com/LeonimusTTV/CheatLoader#Building-the-exe-file)
 - [License](https://github.com/LeonimusTTV/CheatLoader#License)
+- [Contact](https://github.com/LeonimusTTV/CheatLoader#Contact)
 
 ---
 
@@ -31,8 +32,8 @@
 
 #### Latest versions
 
+- [1.0.2](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.3)
 - [1.0.2](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.2)
-- [1.0.1](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.1)
 
 ---
 
