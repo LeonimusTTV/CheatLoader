@@ -13,6 +13,7 @@
 - [Building the exe file](https://github.com/LeonimusTTV/CheatLoader#Building-the-exe-file)
 - [License](https://github.com/LeonimusTTV/CheatLoader#License)
 - [Contact](https://github.com/LeonimusTTV/CheatLoader#Contact)
+- [External Link](https://github.com/LeonimusTTV/CheatLoader#External-Link)
 
 ---
 
@@ -33,7 +34,7 @@
 
 #### Latest versions
 
-- [1.0.3](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.3)
+- [1.0.4](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.4)
 
 ---
 
@@ -49,7 +50,7 @@
 
 5. Now inject it and have fun :) 
 
-PS: for LoL you must start a game to be able to inject
+PS: for LoL you have to launch the client and after inject
 
 #### If you get an error, make sure to follow the steps that could fix the error before posting an issue
 
@@ -70,3 +71,11 @@ MIT
 ## Contact
 
 LEØNIMUST#0002
+
+## External Link
+all these scripts have been modified to match my code.
+
+VacBypass : https://github.com/toxa9/CSGOInjector
+Gmod Injector : lost the repo...
+LoL Injector : https://github.com/R3nzTheCodeGOD/R3nzSkin
+
