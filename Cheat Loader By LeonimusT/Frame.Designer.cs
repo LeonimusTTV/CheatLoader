@@ -55,6 +55,8 @@ namespace Cheat_Loader_By_LeonimusT
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.infoPanel = new System.Windows.Forms.Panel();
+            this.typelb = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.workinglb = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.localvlb = new System.Windows.Forms.Label();
@@ -68,8 +70,6 @@ namespace Cheat_Loader_By_LeonimusT
             this.panel3 = new System.Windows.Forms.Panel();
             this.cheatNamelb1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.typelb = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.infoPanel.SuspendLayout();
@@ -183,6 +183,26 @@ namespace Cheat_Loader_By_LeonimusT
             this.infoPanel.Name = "infoPanel";
             this.infoPanel.Size = new System.Drawing.Size(369, 378);
             this.infoPanel.TabIndex = 3;
+            // 
+            // typelb
+            // 
+            this.typelb.AutoSize = true;
+            this.typelb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.typelb.Location = new System.Drawing.Point(41, 76);
+            this.typelb.Name = "typelb";
+            this.typelb.Size = new System.Drawing.Size(34, 13);
+            this.typelb.TabIndex = 14;
+            this.typelb.Text = "cheat";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(5, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Type : ";
             // 
             // workinglb
             // 
@@ -319,26 +339,6 @@ namespace Cheat_Loader_By_LeonimusT
             this.panel5.Size = new System.Drawing.Size(220, 256);
             this.panel5.TabIndex = 1;
             this.panel5.TabStop = true;
-            // 
-            // typelb
-            // 
-            this.typelb.AutoSize = true;
-            this.typelb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.typelb.Location = new System.Drawing.Point(41, 76);
-            this.typelb.Name = "typelb";
-            this.typelb.Size = new System.Drawing.Size(34, 13);
-            this.typelb.TabIndex = 14;
-            this.typelb.Text = "cheat";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(5, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Type : ";
             // 
             // Frame
             // 
