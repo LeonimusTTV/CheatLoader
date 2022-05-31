@@ -68,6 +68,8 @@ namespace Cheat_Loader_By_LeonimusT
             this.panel3 = new System.Windows.Forms.Panel();
             this.cheatNamelb1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.typelb = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.infoPanel.SuspendLayout();
@@ -164,6 +166,8 @@ namespace Cheat_Loader_By_LeonimusT
             // infoPanel
             // 
             this.infoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoPanel.Controls.Add(this.typelb);
+            this.infoPanel.Controls.Add(this.label6);
             this.infoPanel.Controls.Add(this.workinglb);
             this.infoPanel.Controls.Add(this.label5);
             this.infoPanel.Controls.Add(this.localvlb);
@@ -204,7 +208,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.localvlb.AutoSize = true;
             this.localvlb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.localvlb.Location = new System.Drawing.Point(82, 81);
+            this.localvlb.Location = new System.Drawing.Point(82, 101);
             this.localvlb.Name = "localvlb";
             this.localvlb.Size = new System.Drawing.Size(31, 13);
             this.localvlb.TabIndex = 10;
@@ -214,7 +218,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(6, 80);
+            this.label4.Location = new System.Drawing.Point(6, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 9;
@@ -224,7 +228,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.onlinevlb.AutoSize = true;
             this.onlinevlb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.onlinevlb.Location = new System.Drawing.Point(87, 109);
+            this.onlinevlb.Location = new System.Drawing.Point(87, 129);
             this.onlinevlb.Name = "onlinevlb";
             this.onlinevlb.Size = new System.Drawing.Size(31, 13);
             this.onlinevlb.TabIndex = 8;
@@ -234,7 +238,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(6, 108);
+            this.label3.Location = new System.Drawing.Point(6, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 7;
@@ -316,6 +320,26 @@ namespace Cheat_Loader_By_LeonimusT
             this.panel5.TabIndex = 1;
             this.panel5.TabStop = true;
             // 
+            // typelb
+            // 
+            this.typelb.AutoSize = true;
+            this.typelb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.typelb.Location = new System.Drawing.Point(41, 76);
+            this.typelb.Name = "typelb";
+            this.typelb.Size = new System.Drawing.Size(34, 13);
+            this.typelb.TabIndex = 14;
+            this.typelb.Text = "cheat";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(5, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Type : ";
+            // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,5 +388,7 @@ namespace Cheat_Loader_By_LeonimusT
         private Label label4;
         private Label workinglb;
         private Label label5;
+        private Label typelb;
+        private Label label6;
     }
 }

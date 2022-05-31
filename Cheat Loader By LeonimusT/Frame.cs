@@ -150,6 +150,8 @@ namespace Cheat_Loader_By_LeonimusT
                         statuslb.ForeColor = System.Drawing.Color.Red;
                     //online version label
                     onlinevlb.Text = item.First.onlineVersion;
+                    //type label
+                    typelb.Text = item.First.type;
                     //check if cheat work
                     if ((bool)item.First.working)
                     {
