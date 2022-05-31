@@ -43,6 +43,7 @@ namespace Cheat_Loader_By_LeonimusT
         private string dllPath;
         private string gameName;
         private string dllName;
+        private string appVersion = "1.0.5";
 
         // frame :)
         public Frame()
@@ -62,8 +63,8 @@ namespace Cheat_Loader_By_LeonimusT
                 var item = stuff;
                 string currentPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
 
-                //check if app_local_version.txt exist
-                if (File.Exists(@currentPath + "\\" + item.localVersionName))
+                //(old but still works) check if app_local_version.txt exist
+                /*if (File.Exists(@currentPath + "\\" + item.localVersionName))
                 {
                     localVersion = File.ReadAllText(@currentPath + "\\" + item.localVersionName);
                 }
@@ -73,13 +74,17 @@ namespace Cheat_Loader_By_LeonimusT
                     wc.DownloadFile((string)item.downloadLink, (string)item.localVersionName);
 
                     localVersion = File.ReadAllText(@currentPath + "\\" + item.localVersionName);
-                }
+                }*/
 
-                if (item.onlineVersion != localVersion)
+                if (item.onlineVersion != appVersion)
                 {
                     if ((bool)item.important_update)
                     {
                         MessageBox.Show("A new version of the app has been released! You must install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                        DialogResult dialogResult = MessageBox.Show("Do you want me to open the repo link?", "New update 🥳 !", MessageBoxButtons.YesNo);
+
+                        if(dialogResult == DialogResult.Yes)
+                            System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
                         //close app, other method for close app didn't work idk why
                         System.Environment.Exit(0);
                     }
