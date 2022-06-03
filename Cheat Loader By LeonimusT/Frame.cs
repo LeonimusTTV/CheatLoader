@@ -43,7 +43,7 @@ namespace Cheat_Loader_By_LeonimusT
         private string dllPath;
         private string gameName;
         private string dllName;
-        private string appVersion = "1.0.5";
+        private string appVersion = "1.0.6";
 
         // frame :)
         public Frame()
@@ -52,11 +52,31 @@ namespace Cheat_Loader_By_LeonimusT
             infoPanel.Visible = false;
             injectText.Visible = false;
 
+            //check if backup-server has an urgent message
+            using (WebClient wc = new WebClient())
+            {
+                string json = wc.DownloadString("https://backup-server-v1.000webhostapp.com/backup-server.json");
+                //deserialize json
+                stuff = JsonConvert.DeserializeObject(json);
+
+                var item = stuff;
+
+                if ((bool)item.hasUrgentMessage)
+                {
+                    if(appVersion != (string)item.previousVersion)
+                    {
+                        MessageBox.Show((string)item.message, "URGENT MESSAGE", MessageBoxButtons.OK);
+                        System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
+                        System.Environment.Exit(0);
+                    }
+                }
+            }
+
             //check app info
             using (WebClient wc = new WebClient())
             {
                 //read json
-                string json = wc.DownloadString("https://disapproved-method.000webhostapp.com/app_version.json");
+                string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/app_version.json");
                 //deserialize json
                 stuff = JsonConvert.DeserializeObject(json);
 
@@ -99,7 +119,7 @@ namespace Cheat_Loader_By_LeonimusT
             using (WebClient wc = new WebClient())
             {
                 //read json
-                string json = wc.DownloadString("https://disapproved-method.000webhostapp.com/cheat_info.json");
+                string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/cheat_info.json");
                 //deserialize json
                 stuff = JsonConvert.DeserializeObject(json);
                 foreach(var item in stuff)
