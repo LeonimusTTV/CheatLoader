@@ -34,7 +34,7 @@
 
 #### Latest versions
 
-- [1.0.5](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.5)
+- [1.0.6](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.6)
 
 ---
 
