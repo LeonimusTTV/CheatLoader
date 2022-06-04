@@ -43,7 +43,7 @@ namespace Cheat_Loader_By_LeonimusT
         private string dllPath;
         private string gameName;
         private string dllName;
-        private string appVersion = "1.0.6";
+        private string appVersion = "1.0.7";
 
         // frame :)
         public Frame()
@@ -52,67 +52,74 @@ namespace Cheat_Loader_By_LeonimusT
             infoPanel.Visible = false;
             injectText.Visible = false;
 
-            //check if backup-server has an urgent message
-            using (WebClient wc = new WebClient())
+            //check app info
+            try
             {
-                string json = wc.DownloadString("https://backup-server-v1.000webhostapp.com/backup-server.json");
-                //deserialize json
-                stuff = JsonConvert.DeserializeObject(json);
-
-                var item = stuff;
-
-                if ((bool)item.hasUrgentMessage)
+                using (WebClient wc = new WebClient())
                 {
-                    if(appVersion != (string)item.previousVersion)
+                    //read json
+                    string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/app_version.json");
+                    //deserialize json
+                    stuff = JsonConvert.DeserializeObject(json);
+
+                    var item = stuff;
+                    string currentPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+
+                    //check if online version = to app version
+                    if (item.onlineVersion != appVersion)
                     {
-                        MessageBox.Show((string)item.message, "URGENT MESSAGE", MessageBoxButtons.OK);
-                        System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
-                        System.Environment.Exit(0);
+                        if ((bool)item.important_update)
+                        {
+                            MessageBox.Show("A new version of the app has been released! You must install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                            DialogResult dialogResult = MessageBox.Show("Do you want me to open the repo link?", "New update 🥳 !", MessageBoxButtons.YesNo);
+
+                            if (dialogResult == DialogResult.Yes)
+                                System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
+                            //close app, other method for close app didn't work idk why
+                            System.Environment.Exit(0);
+                        }
+                        else
+                        {
+                            MessageBox.Show("A new version of the app has been released! You don't have to install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                        }
                     }
                 }
             }
-
-            //check app info
-            using (WebClient wc = new WebClient())
+            catch
             {
-                //read json
-                string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/app_version.json");
-                //deserialize json
-                stuff = JsonConvert.DeserializeObject(json);
-
-                var item = stuff;
-                string currentPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
-
-                //(old but still works) check if app_local_version.txt exist
-                /*if (File.Exists(@currentPath + "\\" + item.localVersionName))
+                MessageBox.Show("An error has occurred with the storage server, we are trying to access the backup server for more information", "ERROR", MessageBoxButtons.OK);
+                try
                 {
-                    localVersion = File.ReadAllText(@currentPath + "\\" + item.localVersionName);
-                }
-                else
-                {
-                    //download it if not
-                    wc.DownloadFile((string)item.downloadLink, (string)item.localVersionName);
-
-                    localVersion = File.ReadAllText(@currentPath + "\\" + item.localVersionName);
-                }*/
-
-                if (item.onlineVersion != appVersion)
-                {
-                    if ((bool)item.important_update)
+                    using (WebClient wc = new WebClient())
                     {
-                        MessageBox.Show("A new version of the app has been released! You must install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
-                        DialogResult dialogResult = MessageBox.Show("Do you want me to open the repo link?", "New update 🥳 !", MessageBoxButtons.YesNo);
+                        string json = wc.DownloadString("https://backup-server-v1.000webhostapp.com/backup-server.json");
+                        //deserialize json
+                        stuff = JsonConvert.DeserializeObject(json);
 
-                        if(dialogResult == DialogResult.Yes)
-                            System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
-                        //close app, other method for close app didn't work idk why
-                        System.Environment.Exit(0);
-                    }
-                    else
-                    {
-                        MessageBox.Show("A new version of the app has been released! You don't have to install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                        var item = stuff;
+
+                        if ((bool)item.hasUrgentMessage)
+                        {
+                            if (appVersion != (string)item.previousVersion)
+                            {
+                                MessageBox.Show((string)item.message, "URGENT MESSAGE", MessageBoxButtons.OK);
+                                System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
+                                System.Environment.Exit(0);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No important message was found on the backup server, try to restart the application, if the problem persists please go to the github and send a return", "No information", MessageBoxButtons.OK);
+                        }
                     }
                 }
+                catch
+                {
+                    MessageBox.Show("We can't access the backup server, please keep an eye out for updates on github.", "ERROR", MessageBoxButtons.OK);
+                }
+
+                //close app, other method for close app didn't work idk why
+                System.Environment.Exit(0);
             }
 
             //load json
