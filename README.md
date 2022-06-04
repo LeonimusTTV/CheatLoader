@@ -79,7 +79,7 @@ all these scripts have been modified to match my code.
 
 VacBypass : https://github.com/toxa9/CSGOInjector
 
-Gmod Injector : lost the repo...
+Gmod Injector : https://github.com/rrroyal/cppinjector
 
 LoL Injector : https://github.com/R3nzTheCodeGOD/R3nzSkin
 
