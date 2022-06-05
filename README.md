@@ -2,7 +2,7 @@
 [![Release](https://img.shields.io/github/v/release/LeonimusTTV/CheatLoader?color=%2342aaf5&logo=github&logoColor=%23fff&style=for-the-badge)](https://github.com/LeonimusTTV/CheatLoader/releases)
 
 ## CheatLoader
-> ### Simple cheat downloader and injector for cs, gmod and lol (more game soon)
+> ### Simple cheat loader for cs-go, gmod and lol (more game soon)
 
 ---
 ## Table of content
