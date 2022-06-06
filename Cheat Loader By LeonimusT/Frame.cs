@@ -52,6 +52,8 @@ namespace Cheat_Loader_By_LeonimusT
             infoPanel.Visible = false;
             injectText.Visible = false;
 
+            uninstall_button.Visible = false;
+
             //check app info
             try
             {
@@ -203,12 +205,16 @@ namespace Cheat_Loader_By_LeonimusT
                             versionFile = @currentPath + "\\" + item.First.localVersionName;
                             //local version label
                             localvlb.Text = localVersion;
+                            //set uninstall button visible
+                            uninstall_button.Visible = true;
                         }
                         else
                         {
                             versionFile = @currentPath + "\\" + item.First.localVersionName;
                             //local version label
                             localvlb.Text = "Cheat not installed";
+                            //set uninstall button invisible
+                            uninstall_button.Visible = false;
                         }
 
                         //check if local version = to online version
@@ -222,7 +228,11 @@ namespace Cheat_Loader_By_LeonimusT
                         else
                         {
                             if (File.Exists(@currentPath + "\\" + item.First.dllName))
+                            {
                                 injectButton.Text = "Update";
+                                if (Properties.Settings.Default.AutoUpdate)
+                                    InstallCheatFiles(Version.zero);
+                            }
                             else
                                 injectButton.Text = "Install";
                         }
@@ -247,6 +257,10 @@ namespace Cheat_Loader_By_LeonimusT
                 {
                     File.Delete(dllPath);
                 }
+                injectText.Visible = true;
+                injectText.Text = "Installing...";
+                injectText.ForeColor = System.Drawing.Color.Orange;
+                injectText.Refresh();
                 WebClient webClient = new WebClient();
                 _onlineVersion = new Version(webClient.DownloadString(vLink));
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadCheatCompletedCallback);
@@ -272,7 +286,7 @@ namespace Cheat_Loader_By_LeonimusT
                 injectText.Text = "Update/Installation was successful !";
                 injectText.ForeColor = System.Drawing.Color.LimeGreen;
                 injectText.Refresh();
-                System.Threading.Thread.Sleep(5000);
+                System.Threading.Thread.Sleep(2500);
                 injectText.Visible = false;
                 listBoxUpdate();
             }
@@ -323,27 +337,17 @@ namespace Cheat_Loader_By_LeonimusT
                         //if the cheat is for csgo then
                         if(gameName == "CSGO")
                         {
-                            if (IntPtr.Size == 4)
+                            if (CSGOInjector.VACBypass.RunCSGO(dllPath))
                             {
-                                if (CSGOInjector.VACBypass.RunCSGO(dllPath))
-                                {
-                                    injectText.Text = "Injected !";
-                                    injectText.ForeColor = System.Drawing.Color.LimeGreen;
-                                    injectText.Refresh();
-                                    System.Threading.Thread.Sleep(5000);
-                                }
-                                else
-                                {
-                                    //failed to inject
-                                    injectText.Text = "Injecting Failed !";
-                                    injectText.ForeColor = System.Drawing.Color.Red;
-                                    injectText.Refresh();
-                                    System.Threading.Thread.Sleep(5000);
-                                }
+                                injectText.Text = "Injected !";
+                                injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                                injectText.Refresh();
+                                System.Threading.Thread.Sleep(5000);
                             }
-                            else if (IntPtr.Size == 8)
+                            else
                             {
-                                injectText.Text = "Launch the x86 cheat loader !";
+                                //failed to inject
+                                injectText.Text = "Injecting Failed !";
                                 injectText.ForeColor = System.Drawing.Color.Red;
                                 injectText.Refresh();
                                 System.Threading.Thread.Sleep(5000);
@@ -352,39 +356,21 @@ namespace Cheat_Loader_By_LeonimusT
                         // if the cheat is for gmod then
                         else if(gameName == "Garry's Mod")
                         {
-                            if (IntPtr.Size == 4)
-                            {
-                                injectText.Text = "Launch the x64 cheat loader !";
-                                injectText.ForeColor = System.Drawing.Color.Red;
-                                injectText.Refresh();
-                                System.Threading.Thread.Sleep(5000);
-                            }
-                            else if (IntPtr.Size == 8)
-                            {
-                                string args = dllName;
-                                System.Diagnostics.Process.Start("ginjector.exe", args);
-                                injectText.Text = "Injected !";
-                                injectText.ForeColor = System.Drawing.Color.LimeGreen;
-                                injectText.Refresh();
-                                System.Threading.Thread.Sleep(5000);
-                            }
-                        }else if(gameName == "League of Legends")
+                            string args = dllName;
+                            System.Diagnostics.Process.Start("ginjector.exe", args);
+                            injectText.Text = "Injected !";
+                            injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                            injectText.Refresh();
+                            System.Threading.Thread.Sleep(2500);
+                        }
+                        // if the cheat is form lol then
+                        else if(gameName == "League of Legends")
                         {
-                            if (IntPtr.Size == 8)
-                            {
-                                injectText.Text = "Launch the x86 cheat loader !";
-                                injectText.ForeColor = System.Drawing.Color.Red;
-                                injectText.Refresh();
-                                System.Threading.Thread.Sleep(5000);
-                            }
-                            else if (IntPtr.Size == 4)
-                            {
-                                System.Diagnostics.Process.Start("lolinjector.exe");
-                                injectText.Text = "Injected !";
-                                injectText.ForeColor = System.Drawing.Color.LimeGreen;
-                                injectText.Refresh();
-                                System.Threading.Thread.Sleep(5000);
-                            }
+                            System.Diagnostics.Process.Start("lolinjector.exe");
+                            injectText.Text = "Injected !";
+                            injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                            injectText.Refresh();
+                            System.Threading.Thread.Sleep(2500);
                         }
 
                     }
@@ -401,7 +387,7 @@ namespace Cheat_Loader_By_LeonimusT
                     injectText.Text = "Game not launch !";
                     injectText.ForeColor = System.Drawing.Color.Red;
                     injectText.Refresh();
-                    System.Threading.Thread.Sleep(5000);
+                    System.Threading.Thread.Sleep(2500);
                 }
                 injectText.Visible = false;
             }
@@ -504,7 +490,6 @@ namespace Cheat_Loader_By_LeonimusT
             offset.Y = e.Y;
             mouseDown = true;
         }
-
         private void topName_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown == true)
@@ -513,10 +498,42 @@ namespace Cheat_Loader_By_LeonimusT
                 Location = new Point(currentScreenPos.X - offset.X, currentScreenPos.Y - offset.Y);
             }
         }
-
         private void topName_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+        //end drag window
+
+
+        //show options frame
+        private options op = new options();
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (op.Visible)
+            {
+                op.Hide();
+            }
+            else
+            {
+                op.Show();
+            }
+        }
+
+        //uninstall button
+        private void uninstall_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //delete version file and dll
+                File.Delete(versionFile);
+                File.Delete(dllPath);
+
+                listBoxUpdate();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to uninstall the cheat", "ERROR", MessageBoxButtons.OK);
+            }
         }
     }
 }

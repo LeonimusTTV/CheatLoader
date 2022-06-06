@@ -8,3 +8,4 @@ E:\repos\Cheat Loader LeonimusT\Cheat Loader By LeonimusT\obj\x86\Release\Cheat 
 E:\repos\Cheat Loader LeonimusT\Cheat Loader By LeonimusT\obj\x86\Release\Cheat Loader By LeonimusT.csproj.CoreCompileInputs.cache
 E:\repos\Cheat Loader LeonimusT\Cheat Loader By LeonimusT\obj\x86\Release\Cheat Loader By LeonimusT.csproj.CopyComplete
 E:\repos\Cheat Loader LeonimusT\Cheat Loader By LeonimusT\obj\x86\Release\Cheat Loader By LeonimusT.exe
+E:\repos\Cheat Loader LeonimusT\Cheat Loader By LeonimusT\obj\x86\Release\Cheat_Loader_By_LeonimusT.options.resources

@@ -89,14 +89,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Button_WOC.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Frame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frame.Designer.cs">
       <DependentUpon>Frame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="options.Designer.cs">
+      <DependentUpon>options.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +111,9 @@
     <Compile Include="VACBypass.cs" />
     <EmbeddedResource Include="Frame.resx">
       <DependentUpon>Frame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="options.resx">
+      <DependentUpon>options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,15 +136,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="csgo.png" />
     <Content Include="ico.ico" />
-    <None Include="Resources\profile22.png" />
-    <None Include="Resources\3271363-middle.png" />
-    <None Include="Resources\téléchargé.jpg" />
-    <None Include="Resources\computer_key_Insert.png" />
-    <None Include="Resources\téléchargé.png" />
     <Content Include="icon.ico" />
-    <Content Include="Steam.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -151,6 +150,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

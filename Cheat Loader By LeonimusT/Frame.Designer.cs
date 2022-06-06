@@ -70,6 +70,8 @@ namespace Cheat_Loader_By_LeonimusT
             this.panel3 = new System.Windows.Forms.Panel();
             this.cheatNamelb1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.uninstall_button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.infoPanel.SuspendLayout();
@@ -166,6 +168,7 @@ namespace Cheat_Loader_By_LeonimusT
             // infoPanel
             // 
             this.infoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoPanel.Controls.Add(this.uninstall_button);
             this.infoPanel.Controls.Add(this.typelb);
             this.infoPanel.Controls.Add(this.label6);
             this.infoPanel.Controls.Add(this.workinglb);
@@ -188,17 +191,17 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.typelb.AutoSize = true;
             this.typelb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.typelb.Location = new System.Drawing.Point(41, 76);
+            this.typelb.Location = new System.Drawing.Point(38, 75);
             this.typelb.Name = "typelb";
-            this.typelb.Size = new System.Drawing.Size(34, 13);
+            this.typelb.Size = new System.Drawing.Size(35, 13);
             this.typelb.TabIndex = 14;
-            this.typelb.Text = "cheat";
+            this.typelb.Text = "Cheat";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(5, 75);
+            this.label6.Location = new System.Drawing.Point(6, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 13;
@@ -208,7 +211,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.workinglb.AutoSize = true;
             this.workinglb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.workinglb.Location = new System.Drawing.Point(61, 53);
+            this.workinglb.Location = new System.Drawing.Point(54, 52);
             this.workinglb.Name = "workinglb";
             this.workinglb.Size = new System.Drawing.Size(25, 13);
             this.workinglb.TabIndex = 12;
@@ -218,7 +221,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(6, 53);
+            this.label5.Location = new System.Drawing.Point(6, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 11;
@@ -228,7 +231,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.localvlb.AutoSize = true;
             this.localvlb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.localvlb.Location = new System.Drawing.Point(82, 101);
+            this.localvlb.Location = new System.Drawing.Point(79, 100);
             this.localvlb.Name = "localvlb";
             this.localvlb.Size = new System.Drawing.Size(31, 13);
             this.localvlb.TabIndex = 10;
@@ -238,7 +241,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(6, 100);
+            this.label4.Location = new System.Drawing.Point(7, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 9;
@@ -248,7 +251,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.onlinevlb.AutoSize = true;
             this.onlinevlb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.onlinevlb.Location = new System.Drawing.Point(87, 129);
+            this.onlinevlb.Location = new System.Drawing.Point(84, 125);
             this.onlinevlb.Name = "onlinevlb";
             this.onlinevlb.Size = new System.Drawing.Size(31, 13);
             this.onlinevlb.TabIndex = 8;
@@ -258,7 +261,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(6, 128);
+            this.label3.Location = new System.Drawing.Point(8, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 7;
@@ -268,7 +271,7 @@ namespace Cheat_Loader_By_LeonimusT
             // 
             this.statuslb.AutoSize = true;
             this.statuslb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.statuslb.Location = new System.Drawing.Point(47, 28);
+            this.statuslb.Location = new System.Drawing.Point(44, 29);
             this.statuslb.Name = "statuslb";
             this.statuslb.Size = new System.Drawing.Size(71, 13);
             this.statuslb.TabIndex = 6;
@@ -340,12 +343,45 @@ namespace Cheat_Loader_By_LeonimusT
             this.panel5.TabIndex = 1;
             this.panel5.TabStop = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(12, 414);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Options";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // uninstall_button
+            // 
+            this.uninstall_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uninstall_button.ForeColor = System.Drawing.SystemColors.Control;
+            this.uninstall_button.Location = new System.Drawing.Point(146, 350);
+            this.uninstall_button.Name = "uninstall_button";
+            this.uninstall_button.Size = new System.Drawing.Size(106, 23);
+            this.uninstall_button.TabIndex = 15;
+            this.uninstall_button.Text = "Uninstall";
+            this.uninstall_button.UseVisualStyleBackColor = false;
+            this.uninstall_button.Click += new System.EventHandler(this.uninstall_button_Click);
+            // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(676, 449);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.infoPanel);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel2);
@@ -390,5 +426,7 @@ namespace Cheat_Loader_By_LeonimusT
         private Label label5;
         private Label typelb;
         private Label label6;
+        private Button button2;
+        private Button uninstall_button;
     }
 }
