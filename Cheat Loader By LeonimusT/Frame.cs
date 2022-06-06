@@ -43,7 +43,7 @@ namespace Cheat_Loader_By_LeonimusT
         private string dllPath;
         private string gameName;
         private string dllName;
-        private string appVersion = "1.0.7";
+        private string appVersion = "1.0.8";
 
         // frame :)
         public Frame()
