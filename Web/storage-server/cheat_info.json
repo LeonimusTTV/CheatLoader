@@ -1,0 +1,62 @@
+{
+   "Osiris":{
+      "name":"Osiris",
+      "game":"CSGO",
+      "dllName":"Osiris.dll",
+      "status":"Undetectable",
+      "working":true,
+      "onlineVersion":"0.0.2",
+      "localVersionName":"osiris_local_version.txt",
+      "zipName":"osiris.zip",
+      "processName":"Counter-Strike: Global Offensive - Direct3D 9",
+      "type" : "Cheat"
+   },
+   "NEPS":{
+      "name":"NEPS",
+      "game":"CSGO",
+      "dllName":"NEPS.dll",
+      "status":"Undetectable",
+      "working":true,
+      "onlineVersion":"0.0.2",
+      "zipName":"neps.zip",
+      "localVersionName":"neps_local_version.txt",
+      "processName":"Counter-Strike: Global Offensive - Direct3D 9",
+      "type" : "Cheat"
+   },
+   "Rawetripp":{
+      "name":"Rawetrip",
+      "game":"CSGO",
+      "dllName":"rawetrip.dll",
+      "status":"Undetectable",
+      "working":true,
+      "onlineVersion":"0.0.2",
+      "zipName":"rawetrip.zip",
+      "localVersionName":"rawetrip_local_version.txt",
+      "processName":"Counter-Strike: Global Offensive - Direct3D 9",
+      "type" : "Cheat"
+   },
+   "Gmod SDK":{
+      "name":"Gmod SDK",
+      "game":"Garry's Mod",
+      "dllName":"gsdk.dll",
+      "status":"Undetectable",
+      "working":true,
+      "onlineVersion":"0.0.1",
+      "zipName":"gsdk.zip",
+      "localVersionName":"gsdk_local_version.txt",
+      "processName":"Garry's Mod (x64)",
+      "type" : "Cheat"
+   },
+   "R3nzSkin":{
+      "name":"R3nzSkin",
+      "game":"League of Legends",
+      "dllName":"R3nzSkin.dll",
+      "status":"Undetectable",
+      "working":true,
+      "onlineVersion":"0.0.1",
+      "zipName":"r3nzSkin.zip",
+      "localVersionName":"r3nzSkin_local_version.txt",
+      "processName":"League of Legends",
+      "type" : "Skin changer"
+   }
+}

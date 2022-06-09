@@ -1,0 +1,14 @@
+{
+   "Cheat Name":{
+      "name":"Cheat Name",
+      "game":"Cheat Game, same as Inject void (line 340)",
+      "dllName":"dll name (cheat_name.dll)",
+      "status":"Undetectable/Detectable",
+      "working":true/false,
+      "onlineVersion":"version, same as cheat_name_local_version.txt",
+      "localVersionName":"cheat_name_local_version.demo.txt (WITH EXTENSION AT END)",
+      "zipName":"zip name (cheat_name.zip)",
+      "processName":"game name in taskbar (ex : Counter-Strike: Global Offensive - Direct3D 9, Garry's Mod (x64), League of Legends, ...)",
+      "type" : "Cheat/Skin Changer/Money Cheat/..."
+   }
+}

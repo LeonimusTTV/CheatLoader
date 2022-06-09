@@ -17,6 +17,7 @@ namespace Cheat_Loader_By_LeonimusT
             InitializeComponent();
 
             autoupdateCheckBox.Checked = Properties.Settings.Default.AutoUpdate;
+            autoinjectCheckBox.Checked = Properties.Settings.Default.AutoInject;
         }
 
         //close button
@@ -51,6 +52,7 @@ namespace Cheat_Loader_By_LeonimusT
         private void save_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.AutoUpdate = autoupdateCheckBox.Checked;
+            Properties.Settings.Default.AutoInject = autoinjectCheckBox.Checked;
             Properties.Settings.Default.Save();
 
             this.Hide();

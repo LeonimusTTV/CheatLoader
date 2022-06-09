@@ -46,8 +46,10 @@ namespace Cheat_Loader_By_LeonimusT
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frame));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.minimize_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.topName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,6 +57,7 @@ namespace Cheat_Loader_By_LeonimusT
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.infoPanel = new System.Windows.Forms.Panel();
+            this.uninstall_button = new System.Windows.Forms.Button();
             this.typelb = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.workinglb = new System.Windows.Forms.Label();
@@ -71,23 +74,46 @@ namespace Cheat_Loader_By_LeonimusT
             this.cheatNamelb1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.uninstall_button = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.infoPanel.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.minimize_button);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.topName);
             this.panel1.Location = new System.Drawing.Point(-5, -6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(710, 28);
             this.panel1.TabIndex = 0;
+            // 
+            // minimize_button
+            // 
+            this.minimize_button.BackColor = System.Drawing.Color.Transparent;
+            this.minimize_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimize_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.minimize_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.minimize_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.minimize_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimize_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimize_button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.minimize_button.Location = new System.Drawing.Point(635, 5);
+            this.minimize_button.Name = "minimize_button";
+            this.minimize_button.Size = new System.Drawing.Size(29, 23);
+            this.minimize_button.TabIndex = 2;
+            this.minimize_button.Text = "-";
+            this.minimize_button.UseVisualStyleBackColor = false;
+            this.minimize_button.Click += new System.EventHandler(this.minimize_button_Click);
             // 
             // button1
             // 
@@ -186,6 +212,23 @@ namespace Cheat_Loader_By_LeonimusT
             this.infoPanel.Name = "infoPanel";
             this.infoPanel.Size = new System.Drawing.Size(369, 378);
             this.infoPanel.TabIndex = 3;
+            // 
+            // uninstall_button
+            // 
+            this.uninstall_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uninstall_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.uninstall_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uninstall_button.ForeColor = System.Drawing.SystemColors.Control;
+            this.uninstall_button.Location = new System.Drawing.Point(146, 350);
+            this.uninstall_button.Name = "uninstall_button";
+            this.uninstall_button.Size = new System.Drawing.Size(106, 23);
+            this.uninstall_button.TabIndex = 15;
+            this.uninstall_button.Text = "Uninstall";
+            this.uninstall_button.UseVisualStyleBackColor = false;
+            this.uninstall_button.Click += new System.EventHandler(this.uninstall_button_Click);
             // 
             // typelb
             // 
@@ -300,6 +343,7 @@ namespace Cheat_Loader_By_LeonimusT
             // injectButton
             // 
             this.injectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.injectButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.injectButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.injectButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.injectButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
@@ -346,6 +390,7 @@ namespace Cheat_Loader_By_LeonimusT
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
@@ -359,21 +404,37 @@ namespace Cheat_Loader_By_LeonimusT
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // uninstall_button
+            // notifyIcon1
             // 
-            this.uninstall_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            this.uninstall_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            this.uninstall_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            this.uninstall_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
-            this.uninstall_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uninstall_button.ForeColor = System.Drawing.SystemColors.Control;
-            this.uninstall_button.Location = new System.Drawing.Point(146, 350);
-            this.uninstall_button.Name = "uninstall_button";
-            this.uninstall_button.Size = new System.Drawing.Size(106, 23);
-            this.uninstall_button.TabIndex = 15;
-            this.uninstall_button.Text = "Uninstall";
-            this.uninstall_button.UseVisualStyleBackColor = false;
-            this.uninstall_button.Click += new System.EventHandler(this.uninstall_button_Click);
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "The application is just hide, to open double click on the tray icon";
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Cheat Loader";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 48);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // Frame
             // 
@@ -398,6 +459,7 @@ namespace Cheat_Loader_By_LeonimusT
             this.infoPanel.ResumeLayout(false);
             this.infoPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -428,5 +490,10 @@ namespace Cheat_Loader_By_LeonimusT
         private Label label6;
         private Button button2;
         private Button uninstall_button;
+        private Button minimize_button;
+        private NotifyIcon notifyIcon1;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem closeToolStripMenuItem;
+        private ToolStripMenuItem openToolStripMenuItem;
     }
 }

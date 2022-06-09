@@ -43,7 +43,10 @@ namespace Cheat_Loader_By_LeonimusT
         private string dllPath;
         private string gameName;
         private string dllName;
-        private string appVersion = "1.0.8";
+        private string appVersion = "1.0.9";
+        private string url = "https://pinnated-screw.000webhostapp.com/"; //your url WITH A / AT THE END
+        private string backupUrl = "https://backup-server-v1.000webhostapp.com/"; //your backup url WITH A / AT THE END
+        private string repoUrl = "https://github.com/LeonimusTTV/CheatLoader/tree/main"; //your repo link
 
         // frame :)
         public Frame()
@@ -60,7 +63,7 @@ namespace Cheat_Loader_By_LeonimusT
                 using (WebClient wc = new WebClient())
                 {
                     //read json
-                    string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/app_version.json");
+                    string json = wc.DownloadString(url + "app_version.json");
                     //deserialize json
                     stuff = JsonConvert.DeserializeObject(json);
 
@@ -72,29 +75,32 @@ namespace Cheat_Loader_By_LeonimusT
                     {
                         if ((bool)item.important_update)
                         {
-                            MessageBox.Show("A new version of the app has been released! You must install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                            MessageBox.Show("A new version of the app has been released! You must install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
                             DialogResult dialogResult = MessageBox.Show("Do you want me to open the repo link?", "New update 🥳 !", MessageBoxButtons.YesNo);
 
                             if (dialogResult == DialogResult.Yes)
-                                System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
+                                System.Diagnostics.Process.Start(repoUrl);
                             //close app, other method for close app didn't work idk why
                             System.Environment.Exit(0);
                         }
                         else
                         {
-                            MessageBox.Show("A new version of the app has been released! You don't have to install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK);
+                            MessageBox.Show("A new version of the app has been released! You don't have to install it if you want to continue using it.", "New update 🥳 !", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
                         }
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("An error has occurred with the storage server, we are trying to access the backup server for more information", "ERROR", MessageBoxButtons.OK);
+                MessageBox.Show("An error has occurred with the storage server, we are trying to access the backup server for more information", "ERROR", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 try
                 {
                     using (WebClient wc = new WebClient())
                     {
-                        string json = wc.DownloadString("https://backup-server-v1.000webhostapp.com/backup-server.json");
+                        string json = wc.DownloadString(backupUrl + "backup-server.json");
                         //deserialize json
                         stuff = JsonConvert.DeserializeObject(json);
 
@@ -102,22 +108,23 @@ namespace Cheat_Loader_By_LeonimusT
 
                         if ((bool)item.hasUrgentMessage)
                         {
-                            if (appVersion != (string)item.previousVersion)
+                            if (appVersion == (string)item.versionWithProbleme)
                             {
-                                MessageBox.Show((string)item.message, "URGENT MESSAGE", MessageBoxButtons.OK);
+                                MessageBox.Show((string)item.message, "URGENT MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 System.Diagnostics.Process.Start("https://github.com/LeonimusTTV/CheatLoader/tree/main");
                                 System.Environment.Exit(0);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("No important message was found on the backup server, try to restart the application, if the problem persists please go to the github and send a return", "No information", MessageBoxButtons.OK);
+                            MessageBox.Show("No important message was found on the backup server, try to restart the application, if the problem persists please go to the github and send a return", "No information", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
                         }
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("We can't access the backup server, please keep an eye out for updates on github.", "ERROR", MessageBoxButtons.OK);
+                    MessageBox.Show("We can't access the backup server, please keep an eye out for updates on github.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //close app, other method for close app didn't work idk why
@@ -128,7 +135,7 @@ namespace Cheat_Loader_By_LeonimusT
             using (WebClient wc = new WebClient())
             {
                 //read json
-                string json = wc.DownloadString("https://pinnated-screw.000webhostapp.com/cheat_info.json");
+                string json = wc.DownloadString(url + "cheat_info.json");
                 //deserialize json
                 stuff = JsonConvert.DeserializeObject(json);
                 foreach(var item in stuff)
@@ -194,8 +201,8 @@ namespace Cheat_Loader_By_LeonimusT
                         workinglb.ForeColor = System.Drawing.Color.LimeGreen;
 
                         //set some variables
-                        dllLink = item.First.zipLink;
-                        vLink = item.First.downloadLink;
+                        dllLink = url + item.First.zipName;
+                        vLink = url + item.First.localVersionName;
                         gameZip = @currentPath + "\\" + item.First.zipName;
 
                         //check if local version file exists and set variables
@@ -221,7 +228,16 @@ namespace Cheat_Loader_By_LeonimusT
                         if (item.First.onlineVersion == localVersion)
                         {
                             if (File.Exists(@currentPath + "\\" + item.First.dllName))
+                            {
                                 injectButton.Text = "Inject";
+
+                                if (Properties.Settings.Default.AutoInject)
+                                {
+                                    IntPtr hwGame = (IntPtr)FindWindow(null, gameProcess);
+                                    if(hwGame != IntPtr.Zero)
+                                        Inject();
+                                }
+                            }
                             else
                                 injectButton.Text = "Install";
                         }
@@ -317,80 +333,85 @@ namespace Cheat_Loader_By_LeonimusT
             else if (injectButton.Text == "Update")
                 InstallCheatFiles(Version.zero);
             else if (injectButton.Text == "Inject")
-            {
-                if(statuslb.Text == "Detectable")
-                {
-                    //ask the user if he still wants to inject it even if it is detected 
-                    DialogResult dialogResult = MessageBox.Show("This cheat is detectable, did you want to inject it?", "WAIT !", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.No)
-                    {
-                        return;
-                    }
-                }
-                IntPtr hwGame = (IntPtr)FindWindow(null, gameProcess);
-                if (hwGame != IntPtr.Zero)
-                {
-                    try
-                    {
-                        //try to inject
-                        injectText.Visible = true;
-                        //if the cheat is for csgo then
-                        if(gameName == "CSGO")
-                        {
-                            if (CSGOInjector.VACBypass.RunCSGO(dllPath))
-                            {
-                                injectText.Text = "Injected !";
-                                injectText.ForeColor = System.Drawing.Color.LimeGreen;
-                                injectText.Refresh();
-                                System.Threading.Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                //failed to inject
-                                injectText.Text = "Injecting Failed !";
-                                injectText.ForeColor = System.Drawing.Color.Red;
-                                injectText.Refresh();
-                                System.Threading.Thread.Sleep(5000);
-                            }
-                        }
-                        // if the cheat is for gmod then
-                        else if(gameName == "Garry's Mod")
-                        {
-                            string args = dllName;
-                            System.Diagnostics.Process.Start("ginjector.exe", args);
-                            injectText.Text = "Injected !";
-                            injectText.ForeColor = System.Drawing.Color.LimeGreen;
-                            injectText.Refresh();
-                            System.Threading.Thread.Sleep(2500);
-                        }
-                        // if the cheat is form lol then
-                        else if(gameName == "League of Legends")
-                        {
-                            System.Diagnostics.Process.Start("lolinjector.exe");
-                            injectText.Text = "Injected !";
-                            injectText.ForeColor = System.Drawing.Color.LimeGreen;
-                            injectText.Refresh();
-                            System.Threading.Thread.Sleep(2500);
-                        }
+                Inject();
+        }
 
-                    }
-                    catch (Exception e2)
-                    {
-                        //error
-                        MessageBox.Show(e2.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
+        //inject void
+        private void Inject()
+        {
+            if (statuslb.Text == "Detectable")
+            {
+                //ask the user if he still wants to inject it even if it is detected 
+                DialogResult dialogResult = MessageBox.Show("This cheat is detectable, did you want to inject it?", "WAIT !", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
                 {
-                    //game not launch
-                    injectText.Visible = true;
-                    injectText.Text = "Game not launch !";
-                    injectText.ForeColor = System.Drawing.Color.Red;
-                    injectText.Refresh();
-                    System.Threading.Thread.Sleep(2500);
+                    return;
                 }
-                injectText.Visible = false;
             }
+            IntPtr hwGame = (IntPtr)FindWindow(null, gameProcess);
+            if (hwGame != IntPtr.Zero)
+            {
+                try
+                {
+                    //try to inject
+                    injectText.Visible = true;
+                    //if the cheat is for csgo then
+                    if (gameName == "CSGO")
+                    {
+                        if (CSGOInjector.VACBypass.RunCSGO(dllPath))
+                        {
+                            injectText.Text = "Injected !";
+                            injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                            injectText.Refresh();
+                            System.Threading.Thread.Sleep(5000);
+                        }
+                        else
+                        {
+                            //failed to inject
+                            injectText.Text = "Injecting Failed !";
+                            injectText.ForeColor = System.Drawing.Color.Red;
+                            injectText.Refresh();
+                            System.Threading.Thread.Sleep(5000);
+                        }
+                    }
+                    // if the cheat is for gmod then
+                    else if (gameName == "Garry's Mod")
+                    {
+                        string args = dllName;
+                        System.Diagnostics.Process.Start("ginjector.exe", args);
+                        injectText.Text = "Injected !";
+                        injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                        injectText.Refresh();
+                        System.Threading.Thread.Sleep(2500);
+                    }
+                    // if the cheat is for lol then
+                    else if (gameName == "League of Legends")
+                    {
+                        string args = dllName;
+                        System.Diagnostics.Process.Start("lolinjector.exe", args);
+                        injectText.Text = "Injected !";
+                        injectText.ForeColor = System.Drawing.Color.LimeGreen;
+                        injectText.Refresh();
+                        System.Threading.Thread.Sleep(2500);
+                    }
+
+                }
+                catch (Exception e2)
+                {
+                    //error
+                    MessageBox.Show(e2.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                //game not launch
+                injectText.Visible = true;
+                injectText.Text = "Game not launch !";
+                injectText.ForeColor = System.Drawing.Color.Red;
+                injectText.Refresh();
+                System.Threading.Thread.Sleep(2500);
+            }
+            injectText.Visible = false;
         }
 
         //more dll
@@ -535,5 +556,34 @@ namespace Cheat_Loader_By_LeonimusT
                 MessageBox.Show("Unable to uninstall the cheat", "ERROR", MessageBoxButtons.OK);
             }
         }
+
+        //minimize button
+        private void minimize_button_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = true;
+
+            notifyIcon1.ShowBalloonTip(150);
+
+            this.Hide();
+        }
+
+        //when tray icon is clicked
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+
+            notifyIcon1.Visible = false;
+        }
+
+        //context menu
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+        //end context menu
     }
 }
