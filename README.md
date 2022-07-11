@@ -32,7 +32,7 @@
 
 #### Latest versions
 
-- [1.0.9](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.0.9)
+- [1.1.0](https://github.com/LeonimusTTV/CheatLoader/releases/tag/V1.1.0)
 
 ---
 
