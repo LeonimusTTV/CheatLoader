@@ -43,9 +43,9 @@ namespace Cheat_Loader_By_LeonimusT
         private string dllPath;
         private string gameName;
         private string dllName;
-        private string appVersion = "1.0.9";
-        private string url = "https://pinnated-screw.000webhostapp.com/"; //your url WITH A / AT THE END
-        private string backupUrl = "https://backup-server-v1.000webhostapp.com/"; //your backup url WITH A / AT THE END
+        private string appVersion = "1.1.0";
+        private string url = "https://nitrogenous-develop.000webhostapp.com/"; //your url WITH A / AT THE END
+        private string backupUrl = "https://backup-server-v2.000webhostapp.com/"; //your backup url WITH A / AT THE END
         private string repoUrl = "https://github.com/LeonimusTTV/CheatLoader/tree/main"; //your repo link
 
         // frame :)
