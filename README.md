@@ -66,7 +66,7 @@ MIT
 
 ## Contact
 
-LEØNIMUST#0002 (If you add me it is for a technical problem on the cheat loader and not other ! If you add me as a friend I will wait up to 2 days to have a question or other on the cheat loader, after this time I will remove you from my friend list)
+**LEØNIMUST#0002** (If you add me it is for a technical problem on the cheat loader and not other ! If you add me as a friend I will wait up to 2 days to have a question or other on the cheat loader, after this time I will remove you from my friend list)
 
 ---
 
